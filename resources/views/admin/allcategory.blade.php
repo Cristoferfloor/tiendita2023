@@ -7,10 +7,10 @@
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Pagina /</span> Todas las categorias</h4>
         <div class="card">
             <h5 class="card-header">Todas las categorias disponibles</h5>
-            @if(session()->has('message')) 
-            <div class="alert alert-success">
-                {{ session()->get('message')}}
-            </div>
+            @if (session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                </div>
             @endif
             <div class="table-responsive text-nowrap">
                 <table class="table">
@@ -19,21 +19,23 @@
                             <th>ID</th>
                             <th>Nombre de la Categoria</th>
                             <th>Sub Categoria</th>
-                            <th>Producto</th>
+                            <th>Slug</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        <tr>
-                           <td>1</td>
-                           <td>Electrodomesticos</td>
-                           <td>10</td>
-                           <td>100</td>
-                           <td>
-                            <a href="" class="btn btn-primary">Editar </a>
-                            <a href="" class="btn btn-warning"> Borrar </a>
-                           </td>
-                        </tr>
+                        @foreach ($categories as $category)
+                            <tr>
+                                <td>{{ $category->id }}</td>
+                                <td>{{ $category->category_name }}</td>
+                                <td>{{ $category->subcategory_count }}</td>
+                                <td>{{ $category->slug }}</td>
+                                <td>
+                                    <a href="{{ route('editcategory',$category->id)}}" class="btn btn-primary">Editar </a>
+                                    <a href="{{ route('deletecategory',$category->id)}}"class="btn btn-warning"> Borrar </a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
