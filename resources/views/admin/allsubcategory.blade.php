@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Pagina /</span> Todas las Sub Categorias</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Página /</span> Todas las Sub Categorias</h4>
         @if (session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
@@ -18,7 +18,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Nombre de la Sub Categoria</th>
-                            <th>Categoria</th>
+                            <th>Categoría</th>
                             <th>Producto</th>
                             <th>Acciones</th>
                         </tr>
