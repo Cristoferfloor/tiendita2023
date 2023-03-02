@@ -114,8 +114,8 @@ class ProductController extends Controller
     public function DeleteProduct($id)
     {
         $cat_id = Product::where('id',$id)->value('product_category_id');
-        $subcat_id = Product::where('id',$id)->value('product_subcategory_name');
-        Product::findorFail($id)->delete();
+        $subcat_id = Product::where('id',$id)->value('product_subcategory_id');
+        Product::findOrFail($id)->delete();
         Category::where('id', $cat_id)->decrement('product_count', 1);
         Subcategory::where('id', $subcat_id)->decrement('product_count', 1);
         return redirect()->route('allproducts')->with('message', 'Producto Eliminado Exitosamente!');

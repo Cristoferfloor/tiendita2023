@@ -38,7 +38,7 @@ class SubCategoryController extends Controller
         Category::where('id', $category_id)->increment('subcategory_count', 1);
         return redirect()->route('allsubcategory')->with('message', 'Sub Categoría Añadida Exitosamente!');
     }
-    public function EditsubCat($id)
+    public function EditSubCat($id)
     {
         $subcatinfo = Subcategory::findOrFail($id);
         return view('admin.editsubcat', compact('subcatinfo'));
@@ -55,7 +55,7 @@ class SubCategoryController extends Controller
         ]);
         return redirect()->route('allsubcategory')->with('message', 'Sub Categoría Actualizada Exitosamente!');
     }
-    public function DeleteSubCat($id,)
+    public function DeleteSubCat($id)
     {
         $cat_id = Subcategory::where('id',$id)->value('category_id');
         Subcategory::findOrFail($id)->delete();

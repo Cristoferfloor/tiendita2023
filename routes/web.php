@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -20,8 +21,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::controller(HomeController::class)->group(function(){
+    Route::get('/','Index')->name('Home');
 });
 
 Route::get('/dashboard', function () {
@@ -56,7 +58,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/admin/update-product-img', 'UpdateProductImg')->name('updateproductimg');
         Route::get('/admin/edit-product/{id}', 'EditProduct')->name('editproduct');
         Route::post('/admin/update-product', 'UpdateProduct')->name('updateproduct');
-        Route::get('/admin.delete-product/{id}','DeleteProduct')->name('deleteproduct');
+        Route::get('/admin/delete-product/{id}','DeleteProduct')->name('deleteproduct');
     });
     Route::controller(OrderController::class)->group(function () {
         Route::get('/admin/pending-order', 'Index')->name('pendingorder');
