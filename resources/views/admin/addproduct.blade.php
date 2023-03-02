@@ -83,7 +83,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-name">Imagen del Producto </label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Subir Imagen del Producto </label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="file" id="product_img" name="product_img" />
                             </div>
