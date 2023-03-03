@@ -1,3 +1,6 @@
+@php
+    $categories = App\Models\Category::latest()->get();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +36,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="{{ asset('home/img/logo.png') }}" alt=""></a>
+            <a href=href="{{ route('Home') }}><img src="{{ asset('home/img/logo.png') }}" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -45,11 +48,11 @@
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
                 <img src="{{ asset('home/img/language.png') }}" alt="">
-                <div>English</div>
+                <div>Español</div>
                 <span class="arrow_carrot-down"></span>
                 <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
+                    <li><a href="#">Español</a></li>
+                    <li><a href="#">Inglés</a></li>
                 </ul>
             </div>
             <div class="header__top__right__auth">
@@ -82,8 +85,8 @@
         </div>
         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                <li><i class="fa fa-envelope"></i> tiendita@gmail.com</li>
+                <li>Desceuntos a partir de 100$ </li>
             </ul>
         </div>
     </div>
@@ -97,8 +100,8 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
+                                <li><i class="fa fa-envelope"></i> tiendita@gmail.com</li>
+                                <li>Desceuntos a partir de 100$ </li>
                             </ul>
                         </div>
                     </div>
@@ -112,11 +115,11 @@
                             </div>
                             <div class="header__top__right__language">
                                 <img src="{{ asset('home/img/language.png') }}" alt="">
-                                <div>English</div>
+                                <div>Español</div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
+                                    <li><a href="#">Español</a></li>
+                                    <li><a href="#">Inglés</a></li>
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
@@ -131,7 +134,8 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="{{ asset('home/img/logo.png') }}" alt=""></a>
+                        <a href="{{ route('Home') }}"><img src="{{ asset('home/img/logo.png') }}"
+                                alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -178,20 +182,15 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
+                            <span>Categorías</span>
                         </div>
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
+                            @php
+                                $categories = App\Models\Category::latest()->get();
+                            @endphp
+                            @foreach ($categories as $category)
+                                <li><a href="#">{{ $category->category_name }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -203,8 +202,8 @@
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" placeholder="¿Qué estás buscando?">
+                                <button type="submit" class="site-btn">BUSCAR</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -212,8 +211,8 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
+                                <h5>0987654321</h5>
+                                <span>Horario de 06:00 a 21:00</span>
                             </div>
                         </div>
                     </div>
