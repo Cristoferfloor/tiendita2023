@@ -1,8 +1,8 @@
 @extends('user_template.layouts.template')
 @section('main-content')
-@php
-$categories = App\Models\Category::latest()->get();
-@endphp
+    @php
+        $categories = App\Models\Category::latest()->get();
+    @endphp
     <!-- Categories Section Begin -->
     <h2 class="py-5"> Pagina de Inicio </h2>
     <section class="categories">
@@ -62,25 +62,27 @@ $categories = App\Models\Category::latest()->get();
             </div>
             <div class="row featured__filter">
                 @foreach ($allproducts as $product)
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{{ asset($product->product_img) }}">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">{{ $product->product_name }}</a></h6>
-                            <h5>$ {{ $product->price }}</h5>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                        <div class="featured__item">
+                            <div class="featured__item__pic set-bg" data-setbg="{{ asset($product->product_img) }}">
+                                <ul class="featured__item__pic__hover">
+                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="{{ route('singleproduct', [$product->id, $product->slug]) }}"><i
+                                                class="fa fa-retweet"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="featured__item__text">
+                                <h6><a href="#">{{ $product->product_name }}</a></h6>
+                                <h5>$ {{ $product->price }}</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
                 <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{{ asset('home/img/featured/feature-3.jpg') }}">
+                        <div class="featured__item__pic set-bg"
+                            data-setbg="{{ asset('home/img/featured/feature-3.jpg') }}">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -95,7 +97,8 @@ $categories = App\Models\Category::latest()->get();
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{{ asset('home/img/featured/feature-4.jpg') }}">
+                        <div class="featured__item__pic set-bg"
+                            data-setbg="{{ asset('home/img/featured/feature-4.jpg') }}">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -178,22 +181,6 @@ $categories = App\Models\Category::latest()->get();
     <!-- Featured Section End -->
 
     <!-- Banner Begin -->
-    <div class="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
-                        <img src="{{ asset('home/img/banner/banner-1.jpg') }}" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
-                        <img src="{{ asset('home/img/banner/banner-2.jpg') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Banner End -->
 
     <!-- Latest Product Section Begin -->

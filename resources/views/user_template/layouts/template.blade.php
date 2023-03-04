@@ -61,8 +61,8 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">Inicio</a></li>
-                <li><a href="{{ route('category') }}">Tienda</a></li>
+                <li class="active"><a href="./index.html">Ininioz</a></li>
+                <li><a href="#">Tienda</a></li>
                 <li><a href="{{ route('newrelease') }}">Novedades</a></li>
                 {{-- <li><a href=" {{ route('todaysdeal') }} ">Ofertas</a></li> --}}
                 <li><a href="{{ route('customerservice') }}">Servicios</a></li>
@@ -86,7 +86,7 @@
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> tiendita@gmail.com</li>
-                <li>Desceuntos a partir de 100$ </li>
+                <li>Descuentos a partir de 100$ </li>
             </ul>
         </div>
     </div>
@@ -101,7 +101,7 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> tiendita@gmail.com</li>
-                                <li>Desceuntos a partir de 100$ </li>
+                                <li>Descuentos a partir de 100$ </li>
                             </ul>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                             </div>
                             <div class="header__top__right__language">
                                 <img src="{{ asset('home/img/language.png') }}" alt="">
-                                <div>Español</div>
+                                <div>Espanol</div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
                                     <li><a href="#">Español</a></li>
@@ -123,7 +123,7 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <a href="#"><i class="fa fa-user"></i>Login</a>
                             </div>
                         </div>
                     </div>
@@ -142,7 +142,13 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="{{ route('Home') }}">Inicio</a></li>
-                            <li><a href="{{ route('category') }}">Tienda</a></li>
+                            <li><a href="#">Tienda</a>
+                                <ul class="header__menu__dropdown">
+                                    @foreach ( $categories as $category)
+                                    <li><a href="./shop-details.html">{{ $category->category_name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
                             <li><a href="{{ route('newrelease') }}">Novedades</a></li>
                             {{-- <li><a href=" {{ route('todaysdeal') }} ">Ofertas</a></li> --}}
                             <li><a href="{{ route('customerservice') }}">Servicios</a></li>
@@ -185,11 +191,8 @@
                             <span>Categorías</span>
                         </div>
                         <ul>
-                            @php
-                                $categories = App\Models\Category::latest()->get();
-                            @endphp
                             @foreach ($categories as $category)
-                                <li><a href="#">{{ $category->category_name }}</a></li>
+                                <li><a href="{{ route('category',[$category->id,$category->slug]) }}">{{ $category->category_name }}</a></li>
                             @endforeach
                         </ul>
                     </div>
