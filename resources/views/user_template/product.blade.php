@@ -35,15 +35,20 @@
                             </div> --}}
                         <div class="product_details_price">$ {{ $product->price }}</div>
                         <p>{{ $product->product_short_des }}</p>
-                        <div class="product_details_quantity">
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
+                        <form action="{{ route('addproducttocart',$product->id) }}" method="POST">
+                            @csrf
+                            <div class="product_details_quantity">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input type="hidden" value="{{ $product->id }}" name="product_id">
+                                        <input type="number" value="{{ $product->id }}" min="1">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <a href="#" class="primary-btn">Añadir al Carrito</a>
-                        {{-- <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a> --}}
+                            {{-- <input class="primary-btn" type="submit" value="Add To Cart"> --}}
+                            <input class="primary-btn" type="submit" value="Añadir al Carrito">
+                            {{-- <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a> --}}
+                        </form>
                         <ul>
                             <li><b>Disponible </b> <span>{{ $product->quantity }} unidades</span></li>
                             <li><b>Categoría</b> <span>{{ $product->product_category_name }}</span></li>
@@ -129,10 +134,8 @@
                         <div class="featured__item">
                             <div class="featured__item__pic set-bg" data-setbg="{{ asset($product->product_img) }}">
                                 <ul class="featured__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="{{ route('singleproduct', [$product->id, $product->slug]) }}"><i
-                                                class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    <li><a href="{{ route('singleproduct', [$product->id, $product->slug]) }}"><i class="fa fa-shopping-cart"></i></a></li>
+                                    {{-- <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li> --}}
                                 </ul>
                             </div>
                             <div class="featured__item__text">
