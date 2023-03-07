@@ -35,13 +35,15 @@
                             </div> --}}
                         <div class="product_details_price">$ {{ $product->price }}</div>
                         <p>{{ $product->product_short_des }}</p>
-                        <form action="{{ route('addproducttocart',$product->id) }}" method="POST">
+                        <form action="{{ route('addproducttocart') }}" method="POST">
                             @csrf
                             <div class="product_details_quantity">
                                 <div class="quantity">
                                     <div class="pro-qty">
                                         <input type="hidden" value="{{ $product->id }}" name="product_id">
-                                        <input type="number" value="{{ $product->id }}" min="1">
+                                        <input type="hidden" value="{{ $product->price }}" name="price">
+                                        {{-- <input type="hidden" value="1" name="quantity"> --}}
+                                        <input type="number" min="1" name="quantity">
                                     </div>
                                 </div>
                             </div>
