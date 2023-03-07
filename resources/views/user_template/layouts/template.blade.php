@@ -144,8 +144,8 @@
                             <li class="active"><a href="{{ route('Home') }}">Inicio</a></li>
                             <li><a href="#">Tienda</a>
                                 <ul class="header__menu__dropdown">
-                                    @foreach ( $categories as $category)
-                                    <li><a href="./shop-details.html">{{ $category->category_name }}</a></li>
+                                    @foreach ($categories as $category)
+                                        <li><a href="./shop-details.html">{{ $category->category_name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -192,7 +192,9 @@
                         </div>
                         <ul>
                             @foreach ($categories as $category)
-                                <li><a href="{{ route('category',[$category->id,$category->slug]) }}">{{ $category->category_name }}</a></li>
+                                <li><a
+                                        href="{{ route('category', [$category->id, $category->slug]) }}">{{ $category->category_name }}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </div>
@@ -274,12 +276,6 @@
                             <input type="text" placeholder="Enter your mail">
                             <button type="submit" class="site-btn">Subscribe</button>
                         </form>
-                        <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -298,8 +294,6 @@
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </p>
                         </div>
-                        <div class="footer__copyright__payment"><img src="{{ asset('home/img/payment-item.png') }}"
-                                alt=""></div>
                     </div>
                 </div>
             </div>
