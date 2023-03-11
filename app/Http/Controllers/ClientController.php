@@ -90,7 +90,8 @@ class ClientController extends Controller
             $id = $item->id;
             Cart::findOrFail($id)->delete();
         }
-        return redirect()->route('pendingorders')->with('message','Tu Orden ha sido generada Satisfactoriamente!');
+        ShippingInfo::where('user_id', $userid)->first()->delete();
+        return redirect()->route('pendingorders')->with('message', 'Tu Orden ha sido generada Satisfactoriamente!');
     }
     public function UserProfile()
     {
@@ -98,8 +99,8 @@ class ClientController extends Controller
     }
     public function PendingOrders()
     {
-        $pending_orders = Order::where("status","pending")->latest()->get();
-        return view('user_template.pendingorders',compact('pending_orders'));
+        $pending_orders = Order::where("status", "pending")->latest()->get();
+        return view('user_template.pendingorders', compact('pending_orders'));
     }
     public function History()
     {

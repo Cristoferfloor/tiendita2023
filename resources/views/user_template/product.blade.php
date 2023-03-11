@@ -70,15 +70,15 @@
                                 <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
                                     aria-selected="false">Información</a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
                                     aria-selected="false">Reviews <span>(1)</span></a>
-                            </li>
+                            </li> --}}
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product_detailstab_desc">
-                                    <h6>Inofrmación del producto</h6>
+                                    <h6>Información del producto</h6>
                                     <p> {{ $product->product_long_des }}</p>
                                 </div>
                             </div>

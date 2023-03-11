@@ -10,7 +10,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>mitiendita | Inicio</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -108,14 +108,14 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                {{-- <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a> --}}
                             </div>
                             <div class="header__top__right__language">
                                 <img src="{{ asset('home/img/language.png') }}" alt="">
-                                <div>Espanol</div>
+                                <div>Español</div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
                                     <li><a href="#">Español</a></li>
@@ -123,7 +123,7 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i>Login</a>
+                                <a href="{{ route('login') }}"><i class="fa fa-user"></i>Login</a>
                             </div>
                         </div>
                     </div>
@@ -165,11 +165,11 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
-                        <ul>
+                        {{-- <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        </ul> 
+                        <div class="header__cart__price">item: <span>$150.00</span></div> --}}
                     </div>
                 </div>
             </div>
@@ -192,8 +192,8 @@
                         </div>
                         <ul>
                             @foreach ($categories as $category)
-                                <li><a
-                                        href="{{ route('category', [$category->id, $category->slug]) }}">{{ $category->category_name }}</a>
+                                <li>
+                                    <a href="{{ route('category', [$category->id, $category->slug]) }}">{{ $category->category_name }}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -204,7 +204,7 @@
                         <div class="hero__search__form">
                             <form action="#">
                                 <div class="hero__search__categories">
-                                    All Categories
+                                    Todas las categorias
                                     <span class="arrow_carrot-down"></span>
                                 </div>
                                 <input type="text" placeholder="¿Qué estás buscando?">
@@ -241,40 +241,40 @@
                             <a href="./index.html"><img src="{{ asset('home/img/logo.png') }}" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
+                            <li>Dirección : Ladron de Guervara y Patria - Quito</li>
+                            <li>Teléfono: 0987654321</li>
+                            <li>Email: tiendita@gmail.com</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                     <div class="footer__widget">
-                        <h6>Useful Links</h6>
+                        <h6>Enlaces de utilidad</h6>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
+                            <li><a href="#">Acerca de nosotros</a></li>
+                            {{-- <li><a href="#">About Our Shop</a></li>
                             <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
+                            <li><a href="#">Delivery infomation</a></li> --}}
+                            <li><a href="#">Política de Privacidad </a></li>
+                            <li><a href="#">Nuestra ubicación</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">Quienes somos </a></li>
+                            {{-- <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Projects</a></li> --}}
+                            <li><a href="#">Contactanos </a></li>
+                            {{-- <li><a href="#">Innovation</a></li> --}}
+                            <li><a href="#">Testimonios</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <h6>Conoce las ultimas novedades</h6>
+                        <p>Suscribete y adquiere cupones de descuento</p>
                         <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
+                            <input type="text" placeholder="Ingresa tu email">
+                            <button type="submit" class="site-btn">Suscribete</button>
                         </form>
                     </div>
                 </div>
@@ -288,8 +288,8 @@
                                 Copyright &copy;
                                 <script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i
-                                    class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                </script> Todos los derechos reservados | Esta plantilla fue creada con
+                                <i class="fa fa-heart" aria-hidden="true"></i> por <a href="https://colorlib.com"
                                     target="_blank">Colorlib</a>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </p>
