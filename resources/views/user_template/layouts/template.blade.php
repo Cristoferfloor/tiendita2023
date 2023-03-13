@@ -58,6 +58,7 @@
             <div class="header__top__right__auth">
                 <a href="#"><i class="fa fa-user"></i> Login</a>
             </div>
+          
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
@@ -124,6 +125,9 @@
                             </div>
                             <div class="header__top__right__auth">
                                 <a href="{{ route('login') }}"><i class="fa fa-user"></i>Login</a>
+                            </div>
+                            <div class="header__top__right__auth">
+                                <a href="{{ route('register') }}"><i class="fa fa-user"></i>Registro</a>
                             </div>
                         </div>
                     </div>
@@ -207,9 +211,14 @@
                                     Todas las categorias
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="¿Qué estás buscando?">
+                                <input name="buscarpor"  type="search" placeholder="Buscar" aria-label="Search">
                                 <button type="submit" class="site-btn">BUSCAR</button>
                             </form>
+
+                            {{-- <form class="form-inline my-2 my-lg-0 float-righ">
+                                <input name="buscarpor" class="" type="search" placeholder="Buscar" aria-label="Search">
+                                <button class="btn btn-success my-2 my-sm-0" type="submit">Buscar</button>
+                            </form> --}}
                         </div>
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">

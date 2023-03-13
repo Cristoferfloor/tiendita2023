@@ -7,11 +7,28 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class ProductController extends Controller
 {
-    public function Index()
+    // if($request){
+    //     $busqueda = trim($request->get('buscarpor'));
+    //     $tareas = Tarea::where('nombre','like','%'.$busqueda.'%')
+    //         ->orderBy('id','asc')
+    //         ->get();
+    // }
+    
+    // return view('tarea.index', ['tareas'=>$tareas,'buscarpor'=>$busqueda]);
+    public function Index(Request $request)
     {
+
+        // $products = Product::latest()->get();
+        // if($request){
+        //     $busqueda = trim($request->get('buscarpor'));
+        //     $produc = Product::where('product_name','like','%'.$busqueda.'%')
+        //     ->orderBy('id','asc')
+        //     ->get();
+        // }return view('admin.allproducts', ['products'=>$produc,'buscarpor'=>$busqueda]);
         $products = Product::latest()->get();
         return view('admin.allproducts', compact('products'));
     }
@@ -34,10 +51,14 @@ class ProductController extends Controller
             'product_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $image = $request->file('product_img');
-        $img_name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        $request->product_img->move(public_path('upload'), $img_name);
-        $img_url = 'upload/' . $img_name;
+        // $image = $request->file('product_img');
+        // $img_name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        // $request->product_img->move(public_path('upload'), $img_name);
+        // $img_url = 'upload/' . $img_name;
+
+        $file = $request->file('product_img');
+        $obj = Cloudinary::upload($file->getRealPath(),['folder'=>'examenFinal']);
+        $img_url = $obj->getSecurePath();
 
         $category_id = $request->product_category_id;
         $subcategory_id = $request->product_subcategory_id;
@@ -74,11 +95,15 @@ class ProductController extends Controller
             'product_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $id = $request->id;
-        $image = $request->file('product_img');
-        $img_name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        $request->product_img->move(public_path('upload'), $img_name);
-        $img_url = 'upload/' . $img_name;
+         $id = $request->id;
+        // $image = $request->file('product_img');
+        // $img_name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        // $request->product_img->move(public_path('upload'), $img_name);
+        // $img_url = 'upload/' . $img_name;
+
+        $file = $request->file('product_img');
+        $obj = Cloudinary::upload($file->getRealPath(),['folder'=>'examenFinal']);
+        $img_url = $obj->getSecurePath();
 
         Product::findOrFail($id)->update([
             'product_img' => $img_url,
