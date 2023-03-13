@@ -11,14 +11,6 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class ProductController extends Controller
 {
-    // if($request){
-    //     $busqueda = trim($request->get('buscarpor'));
-    //     $tareas = Tarea::where('nombre','like','%'.$busqueda.'%')
-    //         ->orderBy('id','asc')
-    //         ->get();
-    // }
-    
-    // return view('tarea.index', ['tareas'=>$tareas,'buscarpor'=>$busqueda]);
     public function Index(Request $request)
     {
 

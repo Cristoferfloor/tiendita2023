@@ -25,7 +25,6 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'Index')->name('Home');
-    Route::get('/', 'Index')->name('Home');
 });
 
 Route::controller(ClientController::class)->group(function () {

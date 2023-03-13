@@ -8,17 +8,9 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function Index()
-    {
-        // if($request){
-        //     $busqueda = trim($request->get('buscarpor'));
-        //     $produc = Product::where('product_name','like','%'.$busqueda.'%')
-        //     ->orderBy('id','asc')
-        //     ->get();
-        // }return view('user_template.home', ['allproducts'=>$produc,'buscarpor'=>$busqueda]);
-      
+    {      
+        $allproducts = Product::latest()->get();
         return view('user_template.home', compact('allproducts'));
     }
-    public function buscador(){
-      
-    }
+    
 }
